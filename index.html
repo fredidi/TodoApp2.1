@@ -8,9 +8,67 @@
     <script src="scripts/script.js" defer></script>
     <link rel="stylesheet" href="styles/style.css">
 
+    <link rel="icon" type="image/icon" href="images/NeverDontGiveUpDev_Logo_NDGU.Dev_Fav-icon.png">
+
+
     <title>TodoMVC</title>
 </head>
 <body>
+    <header>
+        <h1>todos</h1>
+    </header>
+
+    <main>
+    
+        <form id="input-form">
+            <input id="toggle" type="checkbox">
+    
+            <input id="todoInput" type="text" placeholder="What needs to be done?" autofocus="">
+            <!-- <button id="enter-button" type="submit"></button> -->
+        </form>
+    
+        <ul id="todo-list">
+    
+            <!-- user added to-do-list -->
+        </ul>
+    
+        <section id="filter">
+    
+            <!-- x items left to do -->
+            <ul id="filter-option">
+                <span id="counter"> X items left</span>
+                <button class="filter-button" id="all">
+                    All
+                </button>
+    
+                <button class="filter-button" id="active">
+                    Active
+                </button>
+    
+                <button class="filter-button" id="completed">
+                    Completed
+                </button>
+    
+                <button class="filter-button" id="clearCompleted">
+                    Clear completed
+                </button>
+    
+            </ul>
+        </section>
+    </main>
+
+
+
+    <footer>
+        
+        <p>Footer</p>
+
+        <div id="our-logo">
+            <img id="our-logo" src="images/NeverDontGiveUpDev_Logo_NDGU.Dev_Icon.png"></a>
+        </div>
+
+    </footer>
+    
     
 </body>
 </html>
