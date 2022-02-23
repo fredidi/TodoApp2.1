@@ -6,13 +6,17 @@
 }
 
 html {
-    background: #f5f5f5;
+    background-image: url('../images/adrian-infernus-GLf7bAwCdYg-unsplash.jpg');
+    background-size:cover;
+    background-attachment: fixed;
     color: #4d4d4d;
 }
 
 h1 {
     font-size: 100px;
-    margin: 30px auto;
+    margin: 0 auto;
+    color: white;
+    text-shadow: 2px 1.2px #4d4d4d;
 }
 
 p {
@@ -32,8 +36,13 @@ main, footer {
     min-width: 230px;
     max-width: 550px;
     margin: 0 auto;
-    font-weight: 300;
-    /* border: solid black; */
+}
+
+main {
+    background-color: white;
+    border-radius: 1%;
+    padding-top: 2%;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 30%), 0 25px 70px 0 rgb(0 0 0 / 20%);
 }
 
 
@@ -49,22 +58,32 @@ input[type="checkbox" i] {
     min-height: 30px;
 }
 
+.input-toggle {
+    visibility: visible;
+}
 
 #todoInput {
     width: 85%;
     float: right;
     height: 35px;
+    border: none;
 
 }
 
 input::-webkit-input-placeholder {
     font-size: 20px;
+    color: #c8c8c8;
     line-height: 3;
 }
+
 input {
     font-size: 20px;
     line-height: 3;
     padding-left: 2%;
+}
+
+textarea:focus, input:focus{
+    outline: none;
 }
 
 ul {
@@ -74,44 +93,71 @@ ul {
 }
 
 li {
-    display: list-item;
-    border-bottom: 1px solid #525252;
-    
+    display: grid;
+    grid-template-columns: 82px auto 40px;
+    text-align: left;
+    border-top: 1px solid #ededed;
+    border-bottom: 1px solid #ededed;
 }
 
 
-button {
-    width: 20px;
-    height: 20px;
-    /* border-radius: 10px; */
+.crossBtn-onclick {
+    opacity: 10%;
 }
-
-.remove-onclick {
+.crossBtn-onclick:hover {
+    opacity: 100%;
     cursor: pointer;
 }
 
+.toggle-done {
+    margin: auto;
+}
+
+.todo-item {
+    margin-left: 12px;
+}
+
+
 
 /* ----------------------------------- */
-
 #filter {
-    border: 1px solid blue;
-    min-height: 100px;
-}
-#filter-option {
     visibility: hidden;
 }
-
 
 .filter-button {
     width:max-content;
     height: 20px;
+    margin: auto 3px;
+    background-color: transparent;
+    border-color: transparent;
+    cursor: pointer;
+    margin-bottom: 2%;
 }
 
+.filter-button:hover {
+    border: 1px solid black;
+    border-radius: 5%;
+    padding: 2px;
+}
+
+#counter {
+    float: left;
+    margin-left: 2%;
+    line-height: 1.5;
+}
+
+#clearCompleted {
+    float: right;
+    cursor: pointer;
+    text-decoration: underline;
+    margin-right: 2%;
+}
 
 
 /* -------------------------------- */
   #our-logo img {
-    width: 150px;
+    margin-top: 50px;
+    width: 250px;
 }
 
 
