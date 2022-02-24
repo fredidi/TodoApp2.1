@@ -57,9 +57,9 @@ input[type="checkbox" i] {
     min-height: 30px;
 }
 
-.input-toggle {
+/* #input-toggle {
     visibility: visible;
-}
+} */
 
 #todoInput {
     width: 85%;
@@ -100,19 +100,20 @@ li {
 }
 
 
-.crossBtn-onclick {
+#crossBtn-onclick {
     opacity: 10%;
 }
-.crossBtn-onclick:hover {
+
+#crossBtn-onclick:hover {
     opacity: 100%;
     cursor: pointer;
 }
 
-.toggle-done {
+#toggle-done {
     margin: auto;
 }
 
-.todo-item {
+#todo-item {
     margin-left: 12px;
 }
 
@@ -123,20 +124,29 @@ li {
     visibility: hidden;
 }
 
-.filter-button {
-    width:max-content;
+button {
+    width: max-content;
     height: 20px;
     margin: auto 3px;
     background-color: transparent;
     border-color: transparent;
     cursor: pointer;
     margin-bottom: 2%;
+    border: 0.25px solid transparent;
+    border-radius: 5%;
+    padding: 0px 7px;
 }
 
-.filter-button:hover {
+.selected {
     border: 0.25px solid black;
     border-radius: 5%;
-    padding: 2px;
+    padding: 0px 7px;
+}
+
+button:hover {
+    border: 0.25px solid black;
+    border-radius: 5%;
+    /* padding: 3px 7px; */
 }
 
 #counter {
@@ -154,7 +164,7 @@ li {
 #clearCompleted:hover {
     cursor: pointer;
     text-decoration: underline;
-    border: none;
+    border: 0.25px solid transparent;
 }
 
 /* -------------------------------- */

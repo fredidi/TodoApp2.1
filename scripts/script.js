@@ -1,7 +1,7 @@
 let countToDo = 0;
-let getAllToggled = document.querySelectorAll(".toggle-done:checked");
+let getAllToggled = document.querySelectorAll("#toggle-done:checked");
 const todoCounter = document.querySelector('#counter');
-const clearBtn = document.querySelector("#clearCompleted")
+const showClearBtn = document.querySelector("#clearCompleted")
 
 let submit = document.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -20,11 +20,11 @@ function createNewTodo() {
         const todo = document.createElement("p");
         const crossBtn = document.createElement("p")
 
-        list.className = "todo-task"
-        toggleDone.className = "toggle-done"
-        toggleDone.id = "active"
-        todo.className = "todo-item"
-        crossBtn.className = "crossBtn-onclick";
+        list.id = "todo-task"
+        toggleDone.id = "toggle-done"
+        toggleDone.className = "active"
+        todo.id = "todo-item"
+        crossBtn.id = "crossBtn-onclick";
 
         toggleDone.addEventListener("click", function () {
             if (toggleDone.checked) {
@@ -34,21 +34,22 @@ function createNewTodo() {
                 counter();
                 console.log('onclick undone counter: ' + countToDo);
 
-                clearBtn.style.visibility = 'visible';
-                console.log('show clear if: ' + getAllToggled.length);
-                toggleDone.id = "completed";
+                showClearBtn.style.visibility = 'visible';
+                console.log('show clear if: ');
+                toggleDone.className = "completed";
             }
-            else {
+            if (!toggleDone.checked) {
+
                 todo.style.color = '#4d4d4d'
                 todo.style.textDecoration = 'none'
                 countToDo += 1;
                 counter();
                 console.log('onclick undone counter: ' + countToDo);
-                toggleDone.id = "active";
+                toggleDone.className = "active";
 
-                getAllToggled = document.querySelectorAll(".toggle-done:checked");
+                getAllToggled = document.querySelectorAll("#toggle-done:checked");
                 if (getAllToggled.length == 0) {
-                    clearBtn.style.visibility = 'hidden';
+                    showClearBtn.style.visibility = 'hidden';
                 }
             }
         })
