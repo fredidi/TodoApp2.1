@@ -20,7 +20,7 @@ h1 {
 }
 
 p {
-    font-size: 20px;
+    font-size: 24px;
 }
 
 header {
@@ -50,7 +50,6 @@ main {
 input[type="checkbox" i] {
     width: 30px;
     height: 30px;
-
 }
 
 
@@ -71,13 +70,13 @@ input[type="checkbox" i] {
 }
 
 input::-webkit-input-placeholder {
-    font-size: 20px;
+    font-size: 24px;
     color: #c8c8c8;
     line-height: 3;
 }
 
 input {
-    font-size: 20px;
+    font-size: 24px;
     line-height: 3;
     padding-left: 2%;
 }
@@ -135,7 +134,7 @@ li {
 }
 
 .filter-button:hover {
-    border: 1px solid black;
+    border: 0.25px solid black;
     border-radius: 5%;
     padding: 2px;
 }
@@ -148,11 +147,15 @@ li {
 
 #clearCompleted {
     float: right;
-    cursor: pointer;
-    text-decoration: underline;
     margin-right: 2%;
+    visibility: hidden;
 }
 
+#clearCompleted:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    border: none;
+}
 
 /* -------------------------------- */
   #our-logo img {
