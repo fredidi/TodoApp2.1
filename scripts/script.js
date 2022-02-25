@@ -11,6 +11,11 @@ const submit = document.addEventListener("submit", (event) => {
     document.getElementById("todoInput").value = '';
 });
 
+// getAllToggled = document.querySelectorAll("#toggle-done:checked");
+//                 if (getAllToggled.length == 0) {
+//                     showClearBtn.style.visibility = 'hidden';
+//                 }
+
 function createNewTodo() {
 
     console.log('ToDo-Input: ' + todoInput.value)
@@ -28,6 +33,7 @@ function createNewTodo() {
         todo.id = "todo-item"
         crossBtn.id = "crossBtn-onclick";
 
+        //Toggle todo-task checkbox. When checked = -count. When unchecked = +count
         toggleDone.addEventListener("click", function () {
             if (toggleDone.checked) {
                 countToDo -= 1;
@@ -44,10 +50,11 @@ function createNewTodo() {
                 console.log('show clear if2: ' + countToDo);
                 list.className = "active";
 
-                getAllToggled = document.querySelectorAll("#toggle-done:checked");
-                if (getAllToggled.length == 0) {
-                    showClearBtn.style.visibility = 'hidden';
-                }
+                //If 0 todo-task is toggled. Then hide clear-btn
+                // getAllToggled = document.querySelectorAll("#toggle-done:checked");
+                // if (getAllToggled.length == 0) {
+                //     showClearBtn.style.visibility = 'hidden';
+                // }
             }
         })
 
@@ -63,10 +70,17 @@ function createNewTodo() {
                 if (countToDo == 0) {
                     document.querySelector("#filter-option").style.visibility = 'hidden'
                     showClearBtn.style.visibility = 'hidden';
+                    visibilityToggleAllBtn.disabled = true;
                 }
                 counter();
             }
-            else {
+            if (toggleDone.checked) {
+                if (countToDo == 0) {
+                    document.querySelector("#filter-option").style.visibility = 'hidden'
+                    showClearBtn.style.visibility = 'hidden';
+                    visibilityToggleAllBtn.disabled = true;
+                }
+                // showToggleAllBtn();
                 list.remove();
                 counter();
             }
