@@ -45,21 +45,23 @@ main {
     box-shadow: 0 2px 4px 0 rgb(0 0 0 / 30%), 0 25px 70px 0 rgb(0 0 0 / 20%);
 }
 
-
-
 input[type="checkbox" i] {
     width: 30px;
     height: 30px;
+    /*  */
+    /* border-radius: 50%;
+    border: 1px solid #4d4d4d;
+    -webkit-appearance: none;
+    cursor: pointer; */
 }
 
+/* #input-toggle {
+    visibility: hidden;
+} */
 
 #input-form {
     min-height: 30px;
 }
-
-/* #input-toggle {
-    visibility: visible;
-} */
 
 #todoInput {
     width: 85%;
@@ -165,6 +167,15 @@ button:hover {
     cursor: pointer;
     text-decoration: underline;
     border: 0.25px solid transparent;
+}
+
+.active {
+    color: #4d4d4d;
+    text-decoration: none;
+}
+.completed {
+   color: #c8c8c8;
+   text-decoration: line-through;
 }
 
 /* -------------------------------- */

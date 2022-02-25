@@ -1,3 +1,5 @@
+const todoCounter = document.querySelector('#counter');
+
 function counter() {
     const unCheckedTodo = document.querySelectorAll("#toggle-done:not(:checked)");
     if (unCheckedTodo.length === 1) {
@@ -9,32 +11,45 @@ function counter() {
     }
 }
 
-const allTodoTask = document.querySelectorAll(".todo-task");
+const clickAllAsCompleted = document.querySelector("#input-toggle")
 
-const toggleAllAsDome = document.querySelector("#input-toggle")
-
-toggleAllAsDome.onclick = event => {
+clickAllAsCompleted.onclick = event => {
     console.log('click mark all as done work')
-    for(let item of allTodoTask){
-        console.log('for loop item: ' + item)
+    if (clickAllAsCompleted.checked) {
+        const toggleAllCompleted = document.querySelectorAll("#toggle-done");
+        for (let i = 0; i < toggleAllCompleted.length; i++) {
+            const checkbox = toggleAllCompleted[i]
+            checkbox.checked = true;
+
+            const todo = document.querySelectorAll("#todo-task");
+            for (let task of todo) {
+                task.classList.replace("active", "completed")
+                countToDo = 0;
+                counter();
+            }
+        }
+        showClearBtn.style.visibility = 'visible';
     }
-    // let allCheckboxes = document.querySelectorAll(".toggle-done .todo-task");
-    // const toggleAll = document.getElementsByClassName("active");
-    // for (const iterator of todo-task) {
-    //     console.log('for loop toggle all: ' +iterator)
-    // }
-    // if (getAllToggled.checked) {
-    //     console.log("Checkbox is checked..");
-    //     console.log(getAllToggled.length)
-    // }
-    // else {
-    //     console.log("Checkbox is not checked..");
-    // }
+    if (!clickAllAsCompleted.checked) {
+        countToDo = 0;
+        const toggleAllCompleted = document.querySelectorAll("#toggle-done");
+        for (let i = 0; i < toggleAllCompleted.length; i++) {
+            const checkbox = toggleAllCompleted[i]
+            checkbox.checked = false;
+
+            const todo = document.querySelectorAll("#todo-task");
+            for (let task of todo) {
+                task.classList.replace("completed", "active")
+                countToDo++;
+                counter();
+            }
+        }
+        showClearBtn.style.visibility = 'hidden';
+    }
 }
 
 
 // -----------------------------------------------------------
-//Filter variables
 const clickAll = document.querySelector("#all")
 const clickActive = document.querySelector("#active");
 const clickCompleted = document.querySelector("#completed");
@@ -43,6 +58,7 @@ const clickClearCompleted = document.querySelector("#clearCompleted");
 clickAll.onclick = event => {
     console.log('onclick all btn')
     clickAll.setAttribute("class", "selected")
+
     clickActive.classList.remove("selected")
     clickCompleted.classList.remove("selected")
 }
@@ -66,33 +82,22 @@ clickCompleted.onclick = event => {
 
 clickClearCompleted.onclick = event => {
     console.log('onclick clear btn')
-    
+
+    deleteCompleted();
 }
 
+function deleteCompleted() {
+    const allCompletedTodo = document.querySelectorAll(".completed");
+    const allActiveTodo = document.querySelectorAll(".active")
 
-// function markAllAsDone() {
-//     let inputToggle = document.querySelector(".input-toggle");
-//     inputToggle.addEventListener("clicked", function () {
-//         if (getAllChecked.length.checked) {
-//             console.log("Checkbox is checked..");
-//         }
-//         else {
-//             console.log("Checkbox is not checked..");
-//         }
-//     })
-// }
-
-
-let allCheckboxes = document.querySelectorAll(".toggle-done .todo-task");
-
-function removeCompletedTodo(event) {
-    event.preventDefault();
     console.log('remove call function')
-    for (let i = 0; i < allCheckboxes.length; i++) {
-        console.log('i: '+ i)
-        // if (allCheckboxes[i].checked == true) {
-        //     allCheckboxes[i].remove();
-        // }
+    for (let i = 0; i < allCompletedTodo.length; i++) {
+        console.log('i: ' + i)
+
+        allCompletedTodo[i].remove();
+    }
+    if (allActiveTodo.length == 0) {
+        document.querySelector("#filter-option").style.visibility = 'hidden'
+        showClearBtn.style.visibility = 'hidden';
     }
 }
-
