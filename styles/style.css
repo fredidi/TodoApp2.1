@@ -20,7 +20,7 @@ h1 {
 }
 
 p {
-    font-size: 20px;
+    font-size: 24px;
 }
 
 header {
@@ -45,21 +45,22 @@ main {
     box-shadow: 0 2px 4px 0 rgb(0 0 0 / 30%), 0 25px 70px 0 rgb(0 0 0 / 20%);
 }
 
-
-
 input[type="checkbox" i] {
     width: 30px;
     height: 30px;
-
+    /*  */
+    /* border-radius: 50%;
+    border: 1px solid #4d4d4d;
+    -webkit-appearance: none;
+    cursor: pointer; */
 }
 
+/* #input-toggle {
+    visibility: hidden;
+} */
 
 #input-form {
     min-height: 30px;
-}
-
-.input-toggle {
-    visibility: visible;
 }
 
 #todoInput {
@@ -71,13 +72,13 @@ input[type="checkbox" i] {
 }
 
 input::-webkit-input-placeholder {
-    font-size: 20px;
+    font-size: 24px;
     color: #c8c8c8;
     line-height: 3;
 }
 
 input {
-    font-size: 20px;
+    font-size: 24px;
     line-height: 3;
     padding-left: 2%;
 }
@@ -101,19 +102,20 @@ li {
 }
 
 
-.crossBtn-onclick {
+#crossBtn-onclick {
     opacity: 10%;
 }
-.crossBtn-onclick:hover {
+
+#crossBtn-onclick:hover {
     opacity: 100%;
     cursor: pointer;
 }
 
-.toggle-done {
+#toggle-done {
     margin: auto;
 }
 
-.todo-item {
+#todo-item {
     margin-left: 12px;
 }
 
@@ -124,20 +126,29 @@ li {
     visibility: hidden;
 }
 
-.filter-button {
-    width:max-content;
+button {
+    width: max-content;
     height: 20px;
     margin: auto 3px;
     background-color: transparent;
     border-color: transparent;
     cursor: pointer;
     margin-bottom: 2%;
+    border: 0.25px solid transparent;
+    border-radius: 5%;
+    padding: 0px 7px;
 }
 
-.filter-button:hover {
-    border: 1px solid black;
+.selected {
+    border: 0.25px solid black;
     border-radius: 5%;
-    padding: 2px;
+    padding: 0px 7px;
+}
+
+button:hover {
+    border: 0.25px solid black;
+    border-radius: 5%;
+    /* padding: 3px 7px; */
 }
 
 #counter {
@@ -148,11 +159,24 @@ li {
 
 #clearCompleted {
     float: right;
-    cursor: pointer;
-    text-decoration: underline;
     margin-right: 2%;
+    visibility: hidden;
 }
 
+#clearCompleted:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    border: 0.25px solid transparent;
+}
+
+.active {
+    color: #4d4d4d;
+    text-decoration: none;
+}
+.completed {
+   color: #c8c8c8;
+   text-decoration: line-through;
+}
 
 /* -------------------------------- */
   #our-logo img {
