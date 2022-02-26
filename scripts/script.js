@@ -1,6 +1,5 @@
 let countToDo = 0;
-let getAllToggled = document.querySelectorAll("#toggle-done:checked");
-let getAllUnToggled = document.querySelectorAll("#toggle-done:not(:checked)");
+
 
 const showClearBtn = document.querySelector("#clearCompleted");
 const visibilityToggleAllBtn = document.querySelector("#input-toggle");
@@ -11,22 +10,17 @@ const submit = document.addEventListener("submit", (event) => {
     document.getElementById("todoInput").value = '';
 });
 
-// getAllToggled = document.querySelectorAll("#toggle-done:checked");
-//                 if (getAllToggled.length == 0) {
-//                     showClearBtn.style.visibility = 'hidden';
-//                 }
 
 function createNewTodo() {
-
     console.log('ToDo-Input: ' + todoInput.value)
-    if (todoInput.value != '') {
 
+    if (todoInput.value != '') {
         const list = document.createElement("li")
         const toggleDone = document.createElement("input");
         toggleDone.setAttribute("type", "checkbox");
         const todo = document.createElement("p");
         const crossBtn = document.createElement("span")
-        
+
         list.className = "active"
         list.id = "todo-task"
         toggleDone.id = "toggle-done"
@@ -34,68 +28,8 @@ function createNewTodo() {
         crossBtn.id = "crossBtn-onclick";
         crossBtn.className = "hide";
 
-        //Toggle todo-task checkbox. When checked = -count. When unchecked = +count
-        toggleDone.addEventListener("click", function () {
-            if (toggleDone.checked) {
-                countToDo -= 1;
-                counter();
-                console.log('onclick undone counter: ' + countToDo);
-
-                showClearBtn.style.visibility = 'visible';
-                console.log('show clear if1: ' + countToDo);
-                list.className = "completed";
-            }
-            if (!toggleDone.checked) {
-                countToDo += 1;
-                counter();
-                console.log('show clear if2: ' + countToDo);
-                list.className = "active";
-
-                //If 0 todo-task is toggled. Then hide clear-btn
-                // getAllToggled = document.querySelectorAll("#toggle-done:checked");
-                // if (getAllToggled.length == 0) {
-                //     showClearBtn.style.visibility = 'hidden';
-                // }
-            }
-        })
-
         todo.textContent = todoInput.value;
-
         crossBtn.textContent = '❌';
-
-        list.addEventListener("mouseenter", function (event) {
-            event.preventDefault()
-            event.target.querySelector("#crossBtn-onclick").classList.remove("hide");
-        });
-        list.addEventListener("mouseleave", function (event) {
-            event.target.querySelector("#crossBtn-onclick").classList.add("hide");
-        });
-
-        //Remove todo-task if you click on the red cross
-        crossBtn.addEventListener("click", function () {
-
-            if (!toggleDone.checked) {
-                list.remove();
-                countToDo -= 1;
-                console.log('counter: ' + countToDo)
-                // if (countToDo == 0) {
-                //     document.querySelector("#filter-option").style.visibility = 'hidden'
-                //     showClearBtn.style.visibility = 'hidden';
-                //     visibilityToggleAllBtn.disabled = true;
-                // }
-                counter();
-            }
-            if (toggleDone.checked) {
-                // if (countToDo == 0) {
-                //     document.querySelector("#filter-option").style.visibility = 'hidden'
-                //     showClearBtn.style.visibility = 'hidden';
-                //     visibilityToggleAllBtn.disabled = true;
-                // }
-                // showToggleAllBtn();
-                list.remove();
-                counter();
-            }
-        })
 
         document.querySelector("#todo-list").appendChild(list)
         list.append(toggleDone)
@@ -106,11 +40,48 @@ function createNewTodo() {
         console.log('counter: ' + countToDo)
         counter();
 
-        // document.querySelector("#filter-option").style.visibility = 'visible'
-        // visibilityToggleAllBtn.disabled = false;
-        // showToggleAllBtn();
+
+        //Toggle todo-task checkbox. When checked = -count. When unchecked = +count
+        toggleDone.addEventListener("click", function () {
+            if (toggleDone.checked) {
+                countToDo -= 1;
+                counter();
+                console.log('countToDo: ' + countToDo);
+                list.className = "completed";
+            }
+
+            if (!toggleDone.checked) {
+                countToDo += 1;
+                counter();
+                console.log('countToDo: ' + countToDo);
+                list.className = "active";
+            }
+        })
+
+        //Show/hide red-cross button when hover
+        list.addEventListener("mouseenter", function () {
+            list.querySelector("#crossBtn-onclick").classList.remove("hide");
+        });
+        list.addEventListener("mouseleave", function (event) {
+            list.querySelector("#crossBtn-onclick").classList.add("hide");
+        });
+
+        //Remove todo-task if you click on the red cross
+        crossBtn.addEventListener("click", function () {
+            if (!toggleDone.checked) {
+                list.remove();
+                countToDo -= 1;
+                console.log('counter: ' + countToDo)
+                counter();
+            }
+
+            if (toggleDone.checked) {
+                list.remove();
+                counter();
+            }
+        })
     }
     else {
-        alert('Please try again.')
+        return;
     }
 }

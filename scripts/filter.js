@@ -1,91 +1,42 @@
-//Update counter [X items left]
-const todoCounter = document.querySelector('#counter');
-
-function counter() {
-    const unCheckedTodo = document.querySelectorAll("#toggle-done:not(:checked)");
-    if (unCheckedTodo.length === 1) {
-        todoCounter.textContent = '1 item left';
-        console.log('unchecked if: ' + unCheckedTodo.length)
-        showAllBtn()
-    }
-    else {
-        todoCounter.textContent = unCheckedTodo.length + ' items left';
-        console.log('unchecked else: ' + unCheckedTodo.length)
-        showAllBtn()
-    }
-}
-
-//Validate if Toggle-all button left of input should be enabled || disabled
-function showAllBtn() {
-    const todoListLength = document.querySelectorAll("#todo-list");
-
-
-    for (let i = 0; i < todoListLength.length; i++) {
-        // const length = todoListLength[i]
-        console.log('showAllBtn todo index: ' + i + ' - length: ' + todoListLength.length)
-
-        if (todoListLength.length >= 1) {
-            console.log('showAllBtn if todoListLength >= 1')
-            visibilityToggleAllBtn.disabled = false;
-            document.querySelector("#filter-option").style.visibility = 'visible'
-            // if (countToDo == 0) {
-            //     console.log('showAllBtn if countTodo == 0: ' + countToDo)
-            //     visibilityToggleAllBtn.disabled = true;
-            //     showClearBtn.style.visibility = 'hidden';
-            //     document.querySelector("#filter-option").style.visibility = 'hidden'
-            // }
-        }
-        // if (countToDo >= 1) {
-        //     console.log('showAllBtn if count: ' + countToDo)
-
-        // }
-        else {
-            console.log('showAllBtn if todoListLength == 0 - todoListLength' + todoListLength.length)
-            visibilityToggleAllBtn.disabled = true;
-            // showClearBtn.style.visibility = 'hidden';
-            document.querySelector("#filter-option").style.visibility = 'hidden'
-        }
-    }
-
-}
+let getAllToggled = document.querySelectorAll("#toggle-done:checked");
+let getAllUnToggled = document.querySelectorAll("#toggle-done:not(:checked)");
 
 //When click on Toggle-All button left of input
 //[Toggle all & set as Completed || UnToggle all & set as Active]
 const clickAllAsCompleted = document.querySelector("#input-toggle")
-
 clickAllAsCompleted.onclick = event => {
     console.log('click mark all as done work')
     if (clickAllAsCompleted.checked) {
         const toggleAllCompleted = document.querySelectorAll("#toggle-done");
+
         for (let i = 0; i < toggleAllCompleted.length; i++) {
             const checkbox = toggleAllCompleted[i]
-            console.log('for if toggle all completed: ' + checkbox)
+            console.log('clickAllAsCompleted.onclick = all checked: "' + toggleAllCompleted.length + '"')
             checkbox.checked = true;
 
             const todo = document.querySelectorAll("#todo-task");
             for (let task of todo) {
-                task.classList.replace("active", "completed")
-                countToDo = 0;
-                counter();
+                task.classList.replace("active", "completed") 
+                countToDo -= 1;
             }
         }
-        showClearBtn.style.visibility = 'visible';
+        counter();
     }
     if (!clickAllAsCompleted.checked) {
-        countToDo = 0;
         const toggleAllCompleted = document.querySelectorAll("#toggle-done");
+
         for (let i = 0; i < toggleAllCompleted.length; i++) {
             const checkbox = toggleAllCompleted[i]
+            console.log('clickAllAsCompleted.onclick = all UNchecked: "' + toggleAllCompleted.length + '"')
             checkbox.checked = false;
 
             const todo = document.querySelectorAll("#todo-task");
             for (let task of todo) {
                 task.classList.replace("completed", "active")
                 countToDo++;
-                counter();
             }
         }
-        showClearBtn.style.visibility = 'hidden';
+        counter();
     }
 }
 
@@ -116,6 +67,7 @@ clickActive.onclick = event => {
 
     //Give all completed todo-task classname "hide"
     //In CSS .hide {display:none}
+    showAll();
     hideCompleted();
 }
 
@@ -127,6 +79,7 @@ clickCompleted.onclick = event => {
     clickAll.classList.remove("selected")
     clickActive.classList.remove("selected")
 
+    showAll();
     hideActive();
 }
 
@@ -135,6 +88,7 @@ clickClearCompleted.onclick = event => {
     console.log('onclick clear btn')
 
     deleteCompleted();
+    counter();
 }
 
 function showAll() {
@@ -142,11 +96,12 @@ function showAll() {
     getAllUnToggled = document.querySelectorAll("#toggle-done:not(:checked)");
     const showAllActiveCompleted = document.querySelectorAll("#todo-task");
     for (var i = 0; i < getAllToggled.length; i++) {
-        console.log('show all toggled i: ' + (i+1))
+        console.log('show all toggled i: "' + (i+1) + '"')
         showAllActiveCompleted[i].classList.remove('hide');
     }
+    
     for (var i = 0; i < getAllUnToggled.length; i++) {
-        console.log('show all untoggled i: ' + (i+1))
+        console.log('show all untoggled i: "' + (i+1) + '"')
         showAllActiveCompleted[i].classList.remove('hide');
     }
 }
@@ -156,7 +111,7 @@ function hideCompleted() {
     getAllToggled = document.querySelectorAll("#toggle-done:checked");
     const hideAllCompleted = document.querySelectorAll("#todo-task");
     for (var i = 0; i < getAllToggled.length; i++) {
-        console.log('hide completed i: ' + (i+1))
+        console.log('hide completed i: "' + (i+1) + '"')
             hideAllCompleted[i].classList.add('hide');
     }
 }
@@ -167,7 +122,7 @@ function hideActive() {
     getAllUnToggled = document.querySelectorAll("#toggle-done:not(:checked)");
     const hideAllActive = document.querySelectorAll("#todo-task");
     for (var i = 0; i < getAllUnToggled.length; i++) {
-        console.log('hide active i: ' + (i+1))
+        console.log('hide active i: "' + (i+1) + '"')
             hideAllActive[i].classList.add('hide');
     }
 }
@@ -175,21 +130,11 @@ function hideActive() {
 //Get all completed todo-tasks and delete them
 function deleteCompleted() {
     const allCompletedTodo = document.querySelectorAll(".completed");
-    const allActiveTodo = document.querySelectorAll(".active")
 
     console.log('remove call function')
     for (let i = 0; i < allCompletedTodo.length; i++) {
-        console.log('delete completed i: ' + i)
-
+        console.log('delete completed i: "' + allCompletedTodo.length + '"')
         allCompletedTodo[i].remove();
     }
-//Validate if there are todo-task left, if no, then uncheck Toggle-All button left of input
-//And disable checkbox
-    if (allActiveTodo.length == 0) {
-        document.querySelector("#filter-option").style.visibility = 'hidden'
-        showClearBtn.style.visibility = 'hidden';
-        visibilityToggleAllBtn.checked = false;
-        visibilityToggleAllBtn.disabled = true;
-    }
+    console.log('all completed todo deleted')
 }
-

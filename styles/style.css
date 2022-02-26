@@ -194,4 +194,12 @@ small {
     color: white;
 }
 
+a {
+    color: white;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
 
