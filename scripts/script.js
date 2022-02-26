@@ -25,13 +25,14 @@ function createNewTodo() {
         const toggleDone = document.createElement("input");
         toggleDone.setAttribute("type", "checkbox");
         const todo = document.createElement("p");
-        const crossBtn = document.createElement("p")
+        const crossBtn = document.createElement("span")
         
         list.className = "active"
         list.id = "todo-task"
         toggleDone.id = "toggle-done"
         todo.id = "todo-item"
         crossBtn.id = "crossBtn-onclick";
+        crossBtn.className = "hide";
 
         //Toggle todo-task checkbox. When checked = -count. When unchecked = +count
         toggleDone.addEventListener("click", function () {
@@ -61,25 +62,35 @@ function createNewTodo() {
         todo.textContent = todoInput.value;
 
         crossBtn.textContent = '❌';
+
+        list.addEventListener("mouseenter", function (event) {
+            event.preventDefault()
+            event.target.querySelector("#crossBtn-onclick").classList.remove("hide");
+        });
+        list.addEventListener("mouseleave", function (event) {
+            event.target.querySelector("#crossBtn-onclick").classList.add("hide");
+        });
+
+        //Remove todo-task if you click on the red cross
         crossBtn.addEventListener("click", function () {
 
             if (!toggleDone.checked) {
                 list.remove();
                 countToDo -= 1;
                 console.log('counter: ' + countToDo)
-                if (countToDo == 0) {
-                    document.querySelector("#filter-option").style.visibility = 'hidden'
-                    showClearBtn.style.visibility = 'hidden';
-                    visibilityToggleAllBtn.disabled = true;
-                }
+                // if (countToDo == 0) {
+                //     document.querySelector("#filter-option").style.visibility = 'hidden'
+                //     showClearBtn.style.visibility = 'hidden';
+                //     visibilityToggleAllBtn.disabled = true;
+                // }
                 counter();
             }
             if (toggleDone.checked) {
-                if (countToDo == 0) {
-                    document.querySelector("#filter-option").style.visibility = 'hidden'
-                    showClearBtn.style.visibility = 'hidden';
-                    visibilityToggleAllBtn.disabled = true;
-                }
+                // if (countToDo == 0) {
+                //     document.querySelector("#filter-option").style.visibility = 'hidden'
+                //     showClearBtn.style.visibility = 'hidden';
+                //     visibilityToggleAllBtn.disabled = true;
+                // }
                 // showToggleAllBtn();
                 list.remove();
                 counter();
@@ -95,8 +106,9 @@ function createNewTodo() {
         console.log('counter: ' + countToDo)
         counter();
 
-        document.querySelector("#filter-option").style.visibility = 'visible'
-        visibilityToggleAllBtn.disabled = false;
+        // document.querySelector("#filter-option").style.visibility = 'visible'
+        // visibilityToggleAllBtn.disabled = false;
+        // showToggleAllBtn();
     }
     else {
         alert('Please try again.')

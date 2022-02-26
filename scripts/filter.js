@@ -6,35 +6,48 @@ function counter() {
     if (unCheckedTodo.length === 1) {
         todoCounter.textContent = '1 item left';
         console.log('unchecked if: ' + unCheckedTodo.length)
-    } else {
+        showAllBtn()
+    }
+    else {
         todoCounter.textContent = unCheckedTodo.length + ' items left';
         console.log('unchecked else: ' + unCheckedTodo.length)
+        showAllBtn()
     }
 }
 
 //Validate if Toggle-all button left of input should be enabled || disabled
-// function showToggleAllBtn() {
+function showAllBtn() {
     const todoListLength = document.querySelectorAll("#todo-list");
-    
+
+
     for (let i = 0; i < todoListLength.length; i++) {
-        const length = todoListLength[i]
-        console.log('for-loop todo length: ' + length)
-        console.log('show toggle all btn')
+        // const length = todoListLength[i]
+        console.log('showAllBtn todo index: ' + i + ' - length: ' + todoListLength.length)
 
-    if (todoListLength.length >= 1) {
-        console.log('todo if length: ' + todoListLength)
-        visibilityToggleAllBtn.disabled = false;
-        console.log('show toggle all btn IF 1')
+        if (todoListLength.length >= 1) {
+            console.log('showAllBtn if todoListLength >= 1')
+            visibilityToggleAllBtn.disabled = false;
+            document.querySelector("#filter-option").style.visibility = 'visible'
+            // if (countToDo == 0) {
+            //     console.log('showAllBtn if countTodo == 0: ' + countToDo)
+            //     visibilityToggleAllBtn.disabled = true;
+            //     showClearBtn.style.visibility = 'hidden';
+            //     document.querySelector("#filter-option").style.visibility = 'hidden'
+            // }
+        }
+        // if (countToDo >= 1) {
+        //     console.log('showAllBtn if count: ' + countToDo)
+
+        // }
+        else {
+            console.log('showAllBtn if todoListLength == 0 - todoListLength' + todoListLength.length)
+            visibilityToggleAllBtn.disabled = true;
+            // showClearBtn.style.visibility = 'hidden';
+            document.querySelector("#filter-option").style.visibility = 'hidden'
+        }
     }
 
-    if (todoListLength.length === 0){
-        console.log('todo else length: ' + todoListLength)
-        visibilityToggleAllBtn.disabled = true;
-        document.querySelector("#filter-option").style.visibility = 'hidden'
-        console.log('show toggle all btn IF 2')
-    }
 }
-// }
 
 //When click on Toggle-All button left of input
 //[Toggle all & set as Completed || UnToggle all & set as Active]
@@ -129,24 +142,32 @@ function showAll() {
     getAllUnToggled = document.querySelectorAll("#toggle-done:not(:checked)");
     const showAllActiveCompleted = document.querySelectorAll("#todo-task");
     for (var i = 0; i < getAllToggled.length; i++) {
+        console.log('show all toggled i: ' + (i+1))
         showAllActiveCompleted[i].classList.remove('hide');
     }
     for (var i = 0; i < getAllUnToggled.length; i++) {
+        console.log('show all untoggled i: ' + (i+1))
         showAllActiveCompleted[i].classList.remove('hide');
     }
 }
 function hideCompleted() {
-    const getAllCompleted = document.querySelectorAll(".completed")
+    showAll();
+    // const getAllCompleted = document.querySelectorAll(".completed");
+    getAllToggled = document.querySelectorAll("#toggle-done:checked");
     const hideAllCompleted = document.querySelectorAll("#todo-task");
-    for (var i = 0; i < getAllCompleted.length; i++) {
+    for (var i = 0; i < getAllToggled.length; i++) {
+        console.log('hide completed i: ' + (i+1))
             hideAllCompleted[i].classList.add('hide');
     }
 }
 
 function hideActive() {
-    const getAllActive = document.querySelectorAll(".active")
+    showAll();
+    // const getAllActive = document.querySelectorAll(".active")
+    getAllUnToggled = document.querySelectorAll("#toggle-done:not(:checked)");
     const hideAllActive = document.querySelectorAll("#todo-task");
-    for (var i = 0; i < getAllActive.length; i++) {
+    for (var i = 0; i < getAllUnToggled.length; i++) {
+        console.log('hide active i: ' + (i+1))
             hideAllActive[i].classList.add('hide');
     }
 }
@@ -158,7 +179,7 @@ function deleteCompleted() {
 
     console.log('remove call function')
     for (let i = 0; i < allCompletedTodo.length; i++) {
-        console.log('i: ' + i)
+        console.log('delete completed i: ' + i)
 
         allCompletedTodo[i].remove();
     }
@@ -171,3 +192,4 @@ function deleteCompleted() {
         visibilityToggleAllBtn.disabled = true;
     }
 }
+
