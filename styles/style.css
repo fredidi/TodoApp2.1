@@ -108,12 +108,9 @@ li {
     border-bottom: 1px solid #ededed;
 }
 
-span {
-    margin: auto;
-}
-
 #crossBtn-onclick {
     opacity: 40%;
+    margin: auto;
 }
 
 #crossBtn-onclick:hover {
@@ -149,7 +146,7 @@ button {
 }
 
 button:hover {
-    border: 0.25px solid black;
+    border: 0.25px solid #4d4d4d;
     border-radius: 5%;
 }
 
@@ -157,6 +154,7 @@ button:hover {
     float: left;
     margin-left: 2%;
     line-height: 1.5;
+    margin-right: 10px;
 }
 
 #clearCompleted {
@@ -172,7 +170,7 @@ button:hover {
 }
 
 .selected {
-    border: 0.25px solid black;
+    border: 0.25px solid #4d4d4d;
     border-radius: 5%;
     padding: 0px 7px;
 }
@@ -181,6 +179,7 @@ button:hover {
     color: #4d4d4d;
     text-decoration: none;
 }
+
 .completed #todo-item{
    color: #c8c8c8;
    text-decoration: line-through;
@@ -227,13 +226,14 @@ a:hover {
         margin: 10px 40px;
         min-width: 0;
     }
+    
     #filter-option {
         display: flex;
         padding-bottom: 10px;
     }
 }
 
-@media (min-width: 435px) and (max-width: 500px) {
+@media (max-width: 500px) {
     input::-webkit-input-placeholder {
         font-size: 20px;
     }
@@ -247,6 +247,7 @@ a:hover {
         font-size: 20px;
         margin-left: 0px;
     }
+    
     #filter-option {
         display: flex;
         padding-bottom: 10px;

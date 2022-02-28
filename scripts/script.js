@@ -1,9 +1,5 @@
 let countToDo = 0;
 
-
-const showClearBtn = document.querySelector("#clearCompleted");
-const visibilityToggleAllBtn = document.querySelector("#input-toggle");
-
 const submit = document.addEventListener("submit", (event) => {
     event.preventDefault();
     createNewTodo();
@@ -59,7 +55,7 @@ function createNewTodo() {
         })
 
         //Show/hide red-cross button when hover
-        list.addEventListener("mouseenter", function () {
+        list.addEventListener("mouseover", function () {
             list.querySelector("#crossBtn-onclick").classList.remove("hide");
         });
         list.addEventListener("mouseleave", function (event) {
