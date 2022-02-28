@@ -16,7 +16,7 @@ clickAllAsCompleted.onclick = event => {
 
             const todo = document.querySelectorAll("#todo-task");
             for (let task of todo) {
-                task.classList.replace("active", "completed") 
+                task.classList.replace("active", "completed")
                 countToDo -= 1;
             }
         }
@@ -46,13 +46,17 @@ const clickActive = document.querySelector("#active");
 const clickCompleted = document.querySelector("#completed");
 const clickClearCompleted = document.querySelector("#clearCompleted");
 
+function clearSelected() {
+    clickAll.classList.remove("selected")
+    clickActive.classList.remove("selected")
+    clickCompleted.classList.remove("selected")
+}
+
 //Show all todo-tasks
 clickAll.onclick = event => {
     console.log('onclick all btn')
+    clearSelected();
     clickAll.setAttribute("class", "selected")
-
-    clickActive.classList.remove("selected")
-    clickCompleted.classList.remove("selected")
 
     showAll();
 }
@@ -60,13 +64,9 @@ clickAll.onclick = event => {
 //Show only active todo-tasks
 clickActive.onclick = event => {
     console.log('onclick active btn')
+    clearSelected();
     clickActive.classList.add("selected")
 
-    clickAll.classList.remove("selected")
-    clickCompleted.classList.remove("selected")
-
-    //Give all completed todo-task classname "hide"
-    //In CSS .hide {display:none}
     showAll();
     hideCompleted();
 }
@@ -74,10 +74,8 @@ clickActive.onclick = event => {
 //Show only completed todo-tasks
 clickCompleted.onclick = event => {
     console.log('onclick completed btn')
+    clearSelected();
     clickCompleted.classList.add("selected")
-
-    clickAll.classList.remove("selected")
-    clickActive.classList.remove("selected")
 
     showAll();
     hideActive();
@@ -92,38 +90,29 @@ clickClearCompleted.onclick = event => {
 }
 
 function showAll() {
-    getAllToggled = document.querySelectorAll("#toggle-done:checked");
-    getAllUnToggled = document.querySelectorAll("#toggle-done:not(:checked)");
     const showAllActiveCompleted = document.querySelectorAll("#todo-task");
-    for (var i = 0; i < getAllToggled.length; i++) {
-        console.log('show all toggled i: "' + (i+1) + '"')
-        showAllActiveCompleted[i].classList.remove('hide');
-    }
-    
-    for (var i = 0; i < getAllUnToggled.length; i++) {
-        console.log('show all untoggled i: "' + (i+1) + '"')
+    for (var i = 0; i < showAllActiveCompleted.length; i++) {
+        console.log('show all toggled i: "' + (i + 1) + '"')
         showAllActiveCompleted[i].classList.remove('hide');
     }
 }
 function hideCompleted() {
     showAll();
-    // const getAllCompleted = document.querySelectorAll(".completed");
-    getAllToggled = document.querySelectorAll("#toggle-done:checked");
-    const hideAllCompleted = document.querySelectorAll("#todo-task");
-    for (var i = 0; i < getAllToggled.length; i++) {
-        console.log('hide completed i: "' + (i+1) + '"')
-            hideAllCompleted[i].classList.add('hide');
+
+    const showAllCompleted = document.querySelectorAll(".completed");
+    for (var i = 0; i < showAllCompleted.length; i++) {
+        console.log('show all toggled i: "' + (i + 1) + '"')
+        showAllCompleted[i].classList.add('hide');
     }
 }
 
 function hideActive() {
     showAll();
-    // const getAllActive = document.querySelectorAll(".active")
-    getAllUnToggled = document.querySelectorAll("#toggle-done:not(:checked)");
-    const hideAllActive = document.querySelectorAll("#todo-task");
-    for (var i = 0; i < getAllUnToggled.length; i++) {
-        console.log('hide active i: "' + (i+1) + '"')
-            hideAllActive[i].classList.add('hide');
+    
+    const showAllActive = document.querySelectorAll(".active");
+    for (var i = 0; i < showAllActive.length; i++) {
+        console.log('show all toggled i: "' + (i + 1) + '"')
+        showAllActive[i].classList.add('hide');
     }
 }
 

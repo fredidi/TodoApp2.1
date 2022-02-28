@@ -3,12 +3,12 @@ const todoCounter = document.querySelector('#counter');
 //Update counter [X items left]
 function counter() {
 
-    const todoAmount = document.querySelectorAll("#todo-task")
+    const numberOfTodo = document.querySelectorAll("#todo-task")
     const checkedTodo = document.querySelectorAll("#toggle-done:checked");
     const unCheckedTodo = document.querySelectorAll("#toggle-done:not(:checked)");
 
     // At least 1 Todo-task
-    if (todoAmount.length >= 1) {
+    if (numberOfTodo.length >= 1) {
         document.querySelector("#filter-option").style.visibility = 'visible'
         visibilityToggleAllBtn.disabled = false;
 
@@ -29,7 +29,7 @@ function counter() {
             todoCounter.textContent = unCheckedTodo.length + ' items left';
         }
 
-        if (checkedTodo.length == todoAmount.length) {
+        if (checkedTodo.length == numberOfTodo.length) {
             visibilityToggleAllBtn.checked = true;
         }
     }
