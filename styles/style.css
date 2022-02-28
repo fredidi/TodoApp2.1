@@ -41,32 +41,38 @@ main, footer {
 main {
     background-color: white;
     border-radius: 1%;
-    padding-top: 2%;
+    padding-top: 20px;
     box-shadow: 0 2px 4px 0 rgb(0 0 0 / 30%), 0 25px 70px 0 rgb(0 0 0 / 20%);
+}
+
+#input-form {
+    display: grid;
+    grid-template-columns: 82px auto;
+}
+
+#input-toggle {
+    margin: auto;
 }
 
 input[type="checkbox" i] {
     width: 30px;
     height: 30px;
-    /*  */
+    /* Tick appearance disabled when border-radius 50% */
     /* border-radius: 50%;
     border: 1px solid #4d4d4d;
     -webkit-appearance: none;
     cursor: pointer; */
 }
 
-/* #input-toggle {
-    visibility: hidden;
-} */
 
 #input-form {
-    min-height: 30px;
+    padding-bottom: 10px;
 }
 
 #todoInput {
     width: 85%;
     float: right;
-    height: 35px;
+    height: 50px;
     border: none;
 
 }
@@ -91,7 +97,7 @@ textarea:focus, input:focus{
 ul {
     list-style-type: none;
     display: block;
-    
+    margin: 0;
 }
 
 li {
@@ -105,6 +111,7 @@ li {
 span {
     margin: auto;
 }
+
 #crossBtn-onclick {
     opacity: 40%;
 }
@@ -121,11 +128,11 @@ span {
     margin-left: 12px;
 }
 
-
-
 /* ----------------------------------- */
-#filter {
+#filter-option {
+    margin-top: 7px;
     visibility: hidden;
+    justify-content: space-evenly;
 }
 
 button {
@@ -144,7 +151,6 @@ button {
 button:hover {
     border: 0.25px solid black;
     border-radius: 5%;
-    /* padding: 3px 7px; */
 }
 
 #counter {
@@ -185,7 +191,7 @@ button:hover {
 }
 
 /* -------------------------------- */
-  #our-logo img {
+#our-logo img {
     margin-top: 50px;
     width: 250px;
 }
@@ -202,4 +208,55 @@ a:hover {
     text-decoration: none;
 }
 
+@media (max-width: 435px) {
+    input::-webkit-input-placeholder {
+        font-size: 18px;
+    }
 
+    input {
+        font-size: 18px;
+        padding-left: 0;
+    }
+
+    #todo-item {
+        font-size: 18px;
+        margin-left: 0px;
+    }
+
+    main, footer {
+        margin: 10px 40px;
+        min-width: 0;
+    }
+    #filter-option {
+        display: flex;
+        padding-bottom: 10px;
+    }
+}
+
+@media (min-width: 435px) and (max-width: 500px) {
+    input::-webkit-input-placeholder {
+        font-size: 20px;
+    }
+
+    input {
+        font-size: 20px;
+        padding-left: 0;
+    }
+
+    #todo-item {
+        font-size: 20px;
+        margin-left: 0px;
+    }
+    #filter-option {
+        display: flex;
+        padding-bottom: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    main, footer {
+    margin: 0 20px;
+    min-width: 0;
+    }
+}
