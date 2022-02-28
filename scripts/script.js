@@ -44,6 +44,12 @@ function createNewTodo() {
                 counter();
                 console.log('countToDo: ' + countToDo);
                 list.className = "completed";
+
+                //If user have clicked on 'Active'-button =>
+                if (clickActive.classList.contains("selected")) {
+                    //Hide this #todo-task if user have toggled checkbox
+                    list.classList.add('hide')
+                }
             }
 
             if (!toggleDone.checked) {
@@ -51,6 +57,12 @@ function createNewTodo() {
                 counter();
                 console.log('countToDo: ' + countToDo);
                 list.className = "active";
+
+                //If user have clicked on 'Completed'-button =>
+                if (clickCompleted.classList.contains("selected")) {
+                    //Hide this #todo-task if user have untoggled checkbox
+                    list.classList.add('hide')
+                }
             }
         })
 
