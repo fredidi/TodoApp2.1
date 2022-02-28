@@ -36,7 +36,6 @@ function counter() {
 
     //0 Todo-task
     else {
-        // console.log('counter(): unCheckedToDo.Length > 1: "' + unCheckedTodo.length + '" items')
         document.querySelector("#filter-option").style.visibility = 'hidden'
         visibilityToggleAllBtn.checked = false;
         visibilityToggleAllBtn.disabled = true;

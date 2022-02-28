@@ -4,16 +4,15 @@ const showClearBtn = document.querySelector("#clearCompleted");
 const visibilityToggleAllBtn = document.querySelector("#input-toggle");
 
 //When click on Toggle-All button left of input
-//[Toggle all & set as Completed || UnToggle all & set as Active]
 const clickAllAsCompleted = document.querySelector("#input-toggle")
 clickAllAsCompleted.onclick = event => {
-    console.log('click mark all as done work')
+
+    //Toggle all & set as Completed
     if (clickAllAsCompleted.checked) {
         const toggleAllCompleted = document.querySelectorAll("#toggle-done");
 
         for (let i = 0; i < toggleAllCompleted.length; i++) {
             const checkbox = toggleAllCompleted[i]
-            console.log('clickAllAsCompleted.onclick = all checked: "' + toggleAllCompleted.length + '"')
             checkbox.checked = true;
 
             const todo = document.querySelectorAll("#todo-task");
@@ -24,12 +23,12 @@ clickAllAsCompleted.onclick = event => {
         }
         counter();
     }
+    //UnToggle all & set as Active
     if (!clickAllAsCompleted.checked) {
         const toggleAllCompleted = document.querySelectorAll("#toggle-done");
 
         for (let i = 0; i < toggleAllCompleted.length; i++) {
             const checkbox = toggleAllCompleted[i]
-            console.log('clickAllAsCompleted.onclick = all UNchecked: "' + toggleAllCompleted.length + '"')
             checkbox.checked = false;
 
             const todo = document.querySelectorAll("#todo-task");
@@ -56,7 +55,6 @@ function clearSelected() {
 
 //Show all todo-tasks
 clickAll.onclick = event => {
-    console.log('onclick all btn')
     clearSelected();
     clickAll.setAttribute("class", "selected")
 
@@ -65,7 +63,6 @@ clickAll.onclick = event => {
 
 //Show only active todo-tasks
 clickActive.onclick = event => {
-    console.log('onclick active btn')
     clearSelected();
     clickActive.classList.add("selected")
 
@@ -75,7 +72,6 @@ clickActive.onclick = event => {
 
 //Show only completed todo-tasks
 clickCompleted.onclick = event => {
-    console.log('onclick completed btn')
     clearSelected();
     clickCompleted.classList.add("selected")
 
@@ -94,7 +90,6 @@ clickClearCompleted.onclick = event => {
 function showAll() {
     const showAllActiveCompleted = document.querySelectorAll("#todo-task");
     for (var i = 0; i < showAllActiveCompleted.length; i++) {
-        console.log('show all toggled i: "' + (i + 1) + '"')
         showAllActiveCompleted[i].classList.remove('hide');
     }
 }
@@ -104,7 +99,6 @@ function hideCompleted() {
 
     const showAllCompleted = document.querySelectorAll(".completed");
     for (var i = 0; i < showAllCompleted.length; i++) {
-        console.log('show all toggled i: "' + (i + 1) + '"')
         showAllCompleted[i].classList.add('hide');
     }
 
@@ -112,10 +106,9 @@ function hideCompleted() {
 
 function hideActive() {
     showAll();
-    
+
     const showAllActive = document.querySelectorAll(".active");
     for (var i = 0; i < showAllActive.length; i++) {
-        console.log('show all toggled i: "' + (i + 1) + '"')
         showAllActive[i].classList.add('hide');
     }
 }
@@ -126,8 +119,6 @@ function deleteCompleted() {
 
     console.log('remove call function')
     for (let i = 0; i < allCompletedTodo.length; i++) {
-        console.log('delete completed i: "' + allCompletedTodo.length + '"')
         allCompletedTodo[i].remove();
     }
-    console.log('all completed todo deleted')
 }

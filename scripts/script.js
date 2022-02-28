@@ -8,7 +8,6 @@ const submit = document.addEventListener("submit", (event) => {
 
 
 function createNewTodo() {
-    console.log('ToDo-Input: ' + todoInput.value)
 
     if (todoInput.value != '') {
         const list = document.createElement("li")
@@ -33,16 +32,15 @@ function createNewTodo() {
         list.append(crossBtn)
 
         countToDo += 1;
-        console.log('counter: ' + countToDo)
         counter();
 
 
-        //Toggle todo-task checkbox. When checked = -count. When unchecked = +count
+        //Toggle todo-task checkbox
         toggleDone.addEventListener("click", function () {
+            //When checked -count
             if (toggleDone.checked) {
                 countToDo -= 1;
                 counter();
-                console.log('countToDo: ' + countToDo);
                 list.className = "completed";
 
                 //If user have clicked on 'Active'-button =>
@@ -52,10 +50,10 @@ function createNewTodo() {
                 }
             }
 
+            //When unchecked +count
             if (!toggleDone.checked) {
                 countToDo += 1;
                 counter();
-                console.log('countToDo: ' + countToDo);
                 list.className = "active";
 
                 //If user have clicked on 'Completed'-button =>
