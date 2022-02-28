@@ -1,0 +1,264 @@
+* {
+    padding: 0;
+    box-sizing: border-box;
+    font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    /* outline: 1px solid red; */
+}
+
+html {
+    background-image: url('../images/leone-venter-VieM9BdZKFo-unsplash.jpg');
+    background-size:cover;
+    background-attachment: fixed;
+    color: #4d4d4d;
+}
+
+h1 {
+    font-size: 100px;
+    margin: 0 auto;
+    color: #ead7d7;
+}
+
+p {
+    font-size: 24px;
+}
+
+header {
+    text-align: center;
+    padding: 16px;
+    min-width: 230px;
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+main, footer {
+    text-align: center;
+    min-width: 230px;
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+main {
+    background-color: white;
+    border-radius: 1%;
+    padding-top: 20px;
+    box-shadow:  0 2px 4px 0 rgb(0 0 0 / 20%), 0 25px 20px 0 rgb(0 0 0 / 4%);
+}
+
+#input-form {
+    display: grid;
+    grid-template-columns: 82px auto;
+}
+
+#input-toggle {
+    margin: auto;
+}
+
+input[type="checkbox" i] {
+    width: 30px;
+    height: 30px;
+    /* Tick appearance disabled when border-radius 50% */
+    /* border-radius: 50%;
+    border: 1px solid #4d4d4d;
+    -webkit-appearance: none;
+    cursor: pointer; */
+}
+
+
+#input-form {
+    padding-bottom: 10px;
+}
+
+#todoInput {
+    width: 85%;
+    float: right;
+    height: 50px;
+    border: none;
+
+}
+
+input::-webkit-input-placeholder {
+    font-size: 24px;
+    color: #e6e6e6;
+    line-height: 3;
+    font-style: italic;
+}
+
+input {
+    font-size: 24px;
+    line-height: 3;
+    padding-left: 2%;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+ul {
+    list-style-type: none;
+    display: block;
+    margin: 0;
+}
+
+li {
+    display: grid;
+    grid-template-columns: 82px auto 40px;
+    text-align: left;
+    border-top: 1px solid #ededed;
+    border-bottom: 1px solid #ededed;
+}
+
+#crossBtn-onclick {
+    opacity: 40%;
+    margin: auto;
+}
+
+#crossBtn-onclick:hover {
+    cursor: pointer;
+}
+
+#toggle-done {
+    margin: auto;
+}
+
+#todo-item {
+    margin-left: 12px;
+}
+
+#filter-option {
+    margin-top: 7px;
+    visibility: hidden;
+    justify-content: space-evenly;
+}
+
+button {
+    width: max-content;
+    height: 20px;
+    margin: auto 3px;
+    color: #4d4d4d;
+    background-color: transparent;
+    border-color: transparent;
+    cursor: pointer;
+    margin-bottom: 2%;
+    border: 0.25px solid transparent;
+    border-radius: 5%;
+    padding: 0px 7px;
+}
+
+button:hover {
+    border: 0.25px solid #4d4d4d;
+    border-radius: 5%;
+}
+
+#counter {
+    float: left;
+    margin-left: 2%;
+    line-height: 1.5;
+    margin-right: 10px;
+}
+
+#clearCompleted {
+    float: right;
+    margin-right: 2%;
+    visibility: hidden;
+}
+
+#clearCompleted:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    border: 0.25px solid transparent;
+}
+
+.selected {
+    border: 0.25px solid #4d4d4d;
+    border-radius: 5%;
+    padding: 0px 7px;
+}
+
+.active {
+    color: #4d4d4d;
+    text-decoration: none;
+}
+
+.completed #todo-item{
+   color: #d9d9d9;
+   text-decoration: line-through;
+}
+
+.hide {
+    display: none;
+}
+
+#our-logo img {
+    margin-top: 50px;
+    width: 250px;
+}
+
+small {
+    font-size: 10px;
+    color: #bebebe;
+}
+a {
+    font-size: 10px;
+    color: #bebebe;
+}
+a:visited {
+    color: #bebebe;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+@media (max-width: 435px) {
+    input::-webkit-input-placeholder {
+        font-size: 18px;
+    }
+
+    input {
+        font-size: 18px;
+        padding-left: 0;
+    }
+
+    #todo-item {
+        font-size: 18px;
+        margin-left: 0px;
+    }
+
+    main, footer {
+        margin: 10px 40px;
+        min-width: 0;
+    }
+    
+    #filter-option {
+        display: flex;
+        padding-bottom: 10px;
+    }
+}
+
+@media (max-width: 500px) {
+    input::-webkit-input-placeholder {
+        font-size: 20px;
+    }
+
+    input {
+        font-size: 20px;
+        padding-left: 0;
+    }
+
+    #todo-item {
+        font-size: 20px;
+        margin-left: 0px;
+    }
+    
+    #filter-option {
+        display: flex;
+        padding-bottom: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    main, footer {
+    margin: 0 20px;
+    min-width: 0;
+    }
+}
