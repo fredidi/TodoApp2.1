@@ -6,7 +6,7 @@
 }
 
 html {
-    background-image: url('../images/adrian-infernus-GLf7bAwCdYg-unsplash.jpg');
+    background-image: url('../images/leone-venter-VieM9BdZKFo-unsplash.jpg');
     background-size:cover;
     background-attachment: fixed;
     color: #4d4d4d;
@@ -15,8 +15,7 @@ html {
 h1 {
     font-size: 100px;
     margin: 0 auto;
-    color: white;
-    text-shadow: 2px 1.2px #4d4d4d;
+    color: #ead7d7;
 }
 
 p {
@@ -42,7 +41,7 @@ main {
     background-color: white;
     border-radius: 1%;
     padding-top: 20px;
-    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 30%), 0 25px 70px 0 rgb(0 0 0 / 20%);
+    box-shadow:  0 2px 4px 0 rgb(0 0 0 / 20%), 0 25px 20px 0 rgb(0 0 0 / 4%);
 }
 
 #input-form {
@@ -79,7 +78,7 @@ input[type="checkbox" i] {
 
 input::-webkit-input-placeholder {
     font-size: 24px;
-    color: #c8c8c8;
+    color: #e6e6e6;
     line-height: 3;
     font-style: italic;
 }
@@ -125,7 +124,6 @@ li {
     margin-left: 12px;
 }
 
-/* ----------------------------------- */
 #filter-option {
     margin-top: 7px;
     visibility: hidden;
@@ -136,6 +134,7 @@ button {
     width: max-content;
     height: 20px;
     margin: auto 3px;
+    color: #4d4d4d;
     background-color: transparent;
     border-color: transparent;
     cursor: pointer;
@@ -181,7 +180,7 @@ button:hover {
 }
 
 .completed #todo-item{
-   color: #c8c8c8;
+   color: #d9d9d9;
    text-decoration: line-through;
 }
 
@@ -189,18 +188,21 @@ button:hover {
     display: none;
 }
 
-/* -------------------------------- */
 #our-logo img {
     margin-top: 50px;
     width: 250px;
 }
 
 small {
-    color: white;
+    font-size: 10px;
+    color: #bebebe;
 }
-
 a {
-    color: white;
+    font-size: 10px;
+    color: #bebebe;
+}
+a:visited {
+    color: #bebebe;
 }
 
 a:hover {
@@ -255,7 +257,6 @@ a:hover {
 }
 
 @media (max-width: 600px) {
-
     main, footer {
     margin: 0 20px;
     min-width: 0;
