@@ -98,6 +98,7 @@ function showAll() {
         showAllActiveCompleted[i].classList.remove('hide');
     }
 }
+
 function hideCompleted() {
     showAll();
 
@@ -106,6 +107,7 @@ function hideCompleted() {
         console.log('show all toggled i: "' + (i + 1) + '"')
         showAllCompleted[i].classList.add('hide');
     }
+
 }
 
 function hideActive() {
