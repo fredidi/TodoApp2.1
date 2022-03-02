@@ -1,8 +1,3 @@
-const getAllToggled = document.querySelectorAll("#toggle-done:checked");
-const getAllUnToggled = document.querySelectorAll("#toggle-done:not(:checked)");
-const showClearBtn = document.querySelector("#clearCompleted");
-const visibilityToggleAllBtn = document.querySelector("#input-toggle");
-
 //When click on Toggle-All button left of input
 const clickAllAsCompleted = document.querySelector("#input-toggle")
 clickAllAsCompleted.onclick = event => {
