@@ -6,18 +6,21 @@ function counter() {
     const numberOfTodo = document.querySelectorAll("#todo-task")
     const checkedTodo = document.querySelectorAll("#toggle-done:checked");
     const unCheckedTodo = document.querySelectorAll("#toggle-done:not(:checked)");
+    const visibilityFilterOption = document.querySelector("#filter-option");
+    const visibilityClearBtn = document.querySelector("#clearCompleted");
+    const visibilityToggleAllBtn = document.querySelector("#input-toggle");
 
     // At least 1 Todo-task
     if (numberOfTodo.length >= 1) {
-        document.querySelector("#filter-option").style.visibility = 'visible'
+        visibilityFilterOption.classList.remove('hide')
         visibilityToggleAllBtn.disabled = false;
 
         if (checkedTodo.length >= 1) {
-            showClearBtn.style.visibility = 'visible';
+            visibilityClearBtn.classList.remove('hide')
         }
 
         if (checkedTodo.length == 0) {
-            showClearBtn.style.visibility = 'hidden';
+            visibilityClearBtn.classList.add('hide')
         }
 
         if (unCheckedTodo.length == 1) {
@@ -36,9 +39,9 @@ function counter() {
 
     //0 Todo-task
     else {
-        document.querySelector("#filter-option").style.visibility = 'hidden'
+        visibilityFilterOption.classList.add('hide')
         visibilityToggleAllBtn.checked = false;
         visibilityToggleAllBtn.disabled = true;
-        showClearBtn.style.visibility = 'hidden';
+        visibilityClearBtn.classList.add('hide')
     }
 }

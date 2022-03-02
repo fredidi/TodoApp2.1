@@ -40,7 +40,6 @@ main, footer {
 main {
     background-color: white;
     border-radius: 1%;
-    padding-top: 20px;
     box-shadow:  0 2px 4px 0 rgb(0 0 0 / 20%), 0 25px 20px 0 rgb(0 0 0 / 4%);
 }
 
@@ -68,7 +67,7 @@ input[type="checkbox" i]:checked {
 
 
 #input-form {
-    padding-bottom: 10px;
+    padding: 10px 0px;
 }
 
 #todoInput {
@@ -129,8 +128,6 @@ li {
 
 #filter-option {
     margin-top: 7px;
-    visibility: hidden;
-    justify-content: space-evenly;
 }
 
 button {
@@ -142,13 +139,13 @@ button {
     border-color: transparent;
     cursor: pointer;
     margin-bottom: 2%;
-    border: 0.25px solid transparent;
+    border: 1px solid transparent;
     border-radius: 5%;
     padding: 0px 7px;
 }
 
 button:hover {
-    border: 0.25px solid #4d4d4d;
+    border: 1px solid #af2f2f33;
     border-radius: 5%;
 }
 
@@ -162,7 +159,6 @@ button:hover {
 #clearCompleted {
     float: right;
     margin-right: 2%;
-    visibility: hidden;
 }
 
 #clearCompleted:hover {
@@ -172,7 +168,7 @@ button:hover {
 }
 
 .selected {
-    border: 0.25px solid #4d4d4d;
+    border: 1px solid #af2f2f33;
     border-radius: 5%;
     padding: 0px 7px;
 }
@@ -200,10 +196,12 @@ small {
     font-size: 10px;
     color: #bebebe;
 }
+
 a {
     font-size: 10px;
     color: #bebebe;
 }
+
 a:visited {
     color: #bebebe;
 }
@@ -231,10 +229,9 @@ a:hover {
         margin: 10px 40px;
         min-width: 0;
     }
-    
-    #filter-option {
-        display: flex;
-        padding-bottom: 10px;
+
+    #counter {
+        margin-right: 0;
     }
 }
 
@@ -252,10 +249,9 @@ a:hover {
         font-size: 20px;
         margin-left: 0px;
     }
-    
-    #filter-option {
-        display: flex;
-        padding-bottom: 10px;
+
+    #clearCompleted {
+        float: none;
     }
 }
 
