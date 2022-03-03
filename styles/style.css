@@ -50,6 +50,7 @@ main {
 
 #input-toggle {
     margin: auto;
+    visibility: hidden;
 }
 
 input[type="checkbox" i] {
@@ -71,11 +72,10 @@ input[type="checkbox" i]:checked {
 }
 
 #todoInput {
-    width: 85%;
+    width: 100%;
     float: right;
     height: 50px;
     border: none;
-
 }
 
 input::-webkit-input-placeholder {
@@ -194,16 +194,19 @@ button:hover {
 
 small {
     font-size: 10px;
-    color: #bebebe;
+    /* color: #bebebe; */
+    color: #9b9b9b;
 }
 
 a {
     font-size: 10px;
-    color: #bebebe;
+    /* color: #bebebe; */
+    color: #9b9b9b;
 }
 
 a:visited {
-    color: #bebebe;
+    /* color: #bebebe; */
+    color: #9b9b9b;
 }
 
 a:hover {

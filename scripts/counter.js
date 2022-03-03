@@ -1,8 +1,7 @@
-const todoCounter = document.querySelector('#counter');
-
 //Update counter [X items left]
 function counter() {
-
+    
+    const todoCounter = document.querySelector('#counter');
     const numberOfTodo = document.querySelectorAll("#todo-task")
     const checkedTodo = document.querySelectorAll("#toggle-done:checked");
     const unCheckedTodo = document.querySelectorAll("#toggle-done:not(:checked)");
@@ -12,15 +11,16 @@ function counter() {
 
     // At least 1 Todo-task
     if (numberOfTodo.length >= 1) {
-        visibilityFilterOption.classList.remove('hide')
+        visibilityFilterOption.classList.remove('hide');
         visibilityToggleAllBtn.disabled = false;
+        visibilityToggleAllBtn.style.visibility = 'visible';
 
         if (checkedTodo.length >= 1) {
-            visibilityClearBtn.classList.remove('hide')
+            visibilityClearBtn.classList.remove('hide');
         }
 
         if (checkedTodo.length == 0) {
-            visibilityClearBtn.classList.add('hide')
+            visibilityClearBtn.classList.add('hide');
         }
 
         if (unCheckedTodo.length == 1) {
@@ -39,9 +39,10 @@ function counter() {
 
     //0 Todo-task
     else {
-        visibilityFilterOption.classList.add('hide')
+        visibilityFilterOption.classList.add('hide');
         visibilityToggleAllBtn.checked = false;
         visibilityToggleAllBtn.disabled = true;
+        visibilityToggleAllBtn.style.visibility = 'hidden';
         visibilityClearBtn.classList.add('hide')
     }
 }
